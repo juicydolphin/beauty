@@ -1,0 +1,43 @@
+{
+  "name": "beauty-saloon",
+  "version": "1.0.0",
+  "description": "Elena Krinitskaya",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElenaKrinitskaya/beauty-saloon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElenaKrinitskaya/beauty-saloon/issues"
+  },
+  "homepage": "https://github.com/ElenaKrinitskaya/beauty-saloon#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "autoprefixer": "^10.4.12",
+    "babel-loader": "^9.0.0",
+    "browser-sync": "^2.27.10",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.1.13",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.4.17",
+    "sass": "^1.55.0",
+    "webpack": "^5.74.0",
+    "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "gulp-clean": "^0.4.0"
+  }
+}

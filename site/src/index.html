@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир красоты</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="null.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
+    <style>
+
+        input.error {
+            border: 1px solid #ff0000;
+        }
+
+        label.error {
+            color: #ff0000;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .swiper {
+            max-width: 100%;
+            --swiper-theme-color: #00bf78;
+        }
+
+        .swiper-slide {
+            padding-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="dialog-content" style="display:none;max-width:500px;">
+    <form id="form-fancybox">
+
+        <p class="contacts__form-title">Запись</p>
+        <p class="contacts__form-message">Наш менеджер перезвонит в течение нескольких<br> минут,
+            уточнит подробности и согласует время.</p>
+        <div class="contacts__input-block">
+            <input class="contacts__form-input" required id="name" name="name" placeholder="Ваше имя"/>
+            <input class="contacts__form-input" required id="phone" name="phone" data-masked=""
+                   data-inputmask="'mask':  '+7(999) 999-9999'" placeholder="+7 (___) ___-__-__"/>
+            <p class="contacts__input-title">Выберите мастера:</p>
+            <select name="masterId" class="contacts__form-select">
+                <option value="1">Краснова Ирина</option>
+                <option value="2">Калилова Жанна</option>
+                <option value="3">Киселева Алина</option>
+                <option value="4">Иванова Елена</option>
+            </select>
+            <p class="contacts__input-title">Выберите услугу:</p>
+            <select name="serviceId" class="contacts__form-select">
+                <option value="1">Женская стрижка</option>
+                <option value="2">Мужская стрижка</option>
+                <option value="3">Женская стрижка</option>
+                <option value="4">Детский стиль</option>
+                <option value="5">Креативный стиль</option>
+                <option value="6">Экспресс укладка</option>
+            </select>
+            <p class="contacts__input-title">Дата визита:</p>
+            <input name="visitDate" class="contacts__form-message" type="date">
+            <p class="contacts__result-message hidden">Ваша заявка отправлена! <br>В ближайшее время с вами свяжется
+                менеджер.</p>
+            <button class="button -contacts" id="fancyButton" type="submit">
+                <img class="contacts__preloader hidden" src="images/preloader.svg">
+                <span class="contacts__button-text">Записаться</span></button>
+            <p class="contacts__agreement">Нажимая на кнопку вы соглашаетесь с <span
+                    class="contacts__agreement-url">обработкой<br> персональных данных</span></p>
+        </div>
+
+    </form>
+</div>
+<div id="hamb" class="hamb">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</div>
+<div id="popup" class="popup">
+    <nav id="menu" class="navigation__popup">
+        <a class="navigation-item" href="#price">Услуги и цены</a>
+        <a class="navigation-item" href="#masters">Мастера</a>
+        <a class="navigation-item" href="#works">Наши работы</a>
+        <a class="navigation-item" href="#about">О нас</a>
+        <a class="navigation-item" href="#contacts">Контакты</a>
+    </nav>
+</div>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__top">
+                <button class="hamb">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="#" class="logo">Мир красоты</a>
+                <nav class="navigation__hamb">
+                    <a class="navigation-item" href="#price">Услуги и цены</a>
+                    <a class="navigation-item" href="#masters">Мастера</a>
+                    <a class="navigation-item" href="#works">Наши работы</a>
+                    <a class="navigation-item" href="#about">О нас</a>
+                    <a class="navigation-item" href="#contacts">Контакты</a>
+                </nav>
+                <div class="header__phone">
+                    <a class="phone" href="tel:84996861762">8 (499) 686-17-62</a>
+                    <div class="phone-info">с 10.00 до 19.00 без выходных</div>
+                </div>
+            </div>
+            <div class="header__body">
+                <div class="header__hero">
+                    <h1 class="header__hero-title">Создай свой образ вместе с нами</h1>
+                    <p class="header__hero-text">Идеальный образ за 60 минут</p>
+                    <button data-fancybox="dialogHeader" data-src="#dialog-content" class="button">Записаться онлайн
+                    </button>
+                </div>
+                <div>
+                    <img class="header__girl" src="images/girl.png">
+                </div>
+                <div class="socials">
+                    <a href="#"><img class="scale" src="images/vk.svg"></a>
+                    <a href="#"><img class="scale" src="images/inst.svg"></a>
+                    <a href="#"><img class="scale" src="images/yt.svg"></a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">О салоне</h2>
+                </div>
+                <div class="about">
+                    <div class="about__info">
+                        <p class="about__description">Мир красоты - это уютный салон в самом центре <br> города.
+                            Здесь работают профессиональные <br> визажисты, стилисты и мастера татуажа</p>
+                        <p class="about__text">Красота и хороший уход никогда не выходят из моды. Мы <br>приглашаем
+                            Вас в
+                            место,
+                            где гармония обретает форму,<br>
+                            а внешность становится отражением внутреннего мира. Новая <br> жизнь начинается с
+                            небольших
+                            изменений.
+                            Мы помогаем <br> нашим клиентам воплотить их индивидуальность во внешнем<br> облике.
+                            Мы создаем стиль – вместе с Вами и для Вас.</p>
+                    </div>
+                    <a data-fslightbox="first-lightbox" href="https://www.youtube.com/watch?v=R6NGrsKJ8b4">
+                        <div class="about__video scale -video">
+                            <img src="images/play.svg">
+                            <p class="about__video-text">Короткое видео о нас</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="about__benefits">
+                    <div class="about__list">
+                        <img src="images/mirror.svg">
+                        <h5 class="about__list-title">Удобные кабинеты</h5>
+                        <p class="about__list-text">Комфорт и стиль - принцип создания<br> кабинетов салона красоты.
+                            Только<br> эстетика и удобство для Вас</p>
+                    </div>
+                    <div class="about__list">
+                        <img src="images/cream.svg">
+                        <h5 class="about__list-title">Качественная косметика</h5>
+                        <p class="about__list-text">Используем профессиональные<br> материалы высшего качества<br>
+                            лучших брендов</p>
+
+                    </div>
+                    <div class="about__list">
+                        <img src="images/snipp.svg">
+                        <h5 class="about__list-title">Опытные мастера</h5>
+                        <p class="about__list-text">Работают только опытные мастера<br> с чувством стиля. С
+                            мотрите наших<br> специалистов в разделе Мастера</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="popular" class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Популярные услуги</h2>
+                </div>
+                <div class="services">
+                    <div class="services__container">
+                        <div class="services__item">
+                            <div class="services__photo"></div>
+                            <div class="services__title">Маникюр</div>
+                            <div class="services__text">Аппаратный, комбинированный или классический.</div>
+                            <button data-fancybox="dialogFirst" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
+                        </div>
+                        <div class="services__item">
+                            <div class="services__photo"></div>
+                            <div class="services__title">Покрытие гель-лак</div>
+                            <div class="services__text">Гель-лак наносится в несколько слоев с <br>
+                                использование базы и топа. Каждый слой <br>
+                                полимеризуется в LED-лампе.
+                            </div>
+                            <button data-fancybox="dialogSecond" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
+
+                        </div>
+                        <div class="services__item">
+                            <div class="services__photo"></div>
+                            <div class="services__title">Бразильский маникюр</div>
+                            <div class="services__text">Выполняется в одноразовых перчатках наполненных <br>
+                                увлажняющим лосьоном.
+                            </div>
+                            <button data-fancybox="dialogThird" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
+
+                        </div>
+                        <div class="services__item">
+                            <div class="services__photo"></div>
+                            <div class="services__title">Педикюр</div>
+                            <div class="services__text">Аппаратный, комбинированный или классический.</div>
+                            <button data-fancybox="dialogFourth" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
+
+                        </div>
+                        <div class="services__item">
+                            <div class="services__photo"></div>
+                            <div class="services__title">Парафинотерапия</div>
+                            <div class="services__text">Благодаря этой процедуре увлажнение кожи <br>
+                                увеличивается на 80%, также выводит токсины и <br>
+                                укрепляет суставы.
+                            </div>
+                            <button data-fancybox="dialogFifth" data-src="#dialog-content" class="button -services">
+                                Записаться
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="price">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Услуги и цены</h2>
+                </div>
+                <nav class="navigation -price" id="price-menu">
+                    <a class="navigation-item -price" href="#" id="haircut">Стрижка и укладка</a>
+                    <a class="navigation-item -price" href="#" id="cosmetology">Косметология</a>
+                    <a class="navigation-item -price" href="#" id="nails">Маникюр и педикюр</a>
+                    <a class="navigation-item -price" href="#" id="makeup">Макияж</a>
+                    <a class="navigation-item -price" href="#" id="brows">Брови и ресницы</a>
+                    <a class="navigation-item -price" href="#" id="massage">Массаж</a>
+                </nav>
+                <div class="price__wrapper">
+                    <div class="price__info">
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-first">Женская стрижка</p>
+                                <p class="price__info-type-second" id="left-text-first">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-second">Мужская стрижка</p>
+                                <p class="price__info-type-second" id="left-text-second">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-third">Детский стиль</p>
+                                <p class="price__info-type-second" id="left-text-third">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="left-title-forth">Креативный стиль</p>
+                                <p class="price__info-type-second" id="left-text-forth">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="price__info-values">
+                        <p class="price__info-value" id="left-price-first">1200 ₽</p>
+                        <p class="price__info-value" id="left-price-second">1200 ₽</p>
+                        <p class="price__info-value" id="left-price-third">1200 ₽</p>
+                        <p class="price__info-value" id="left-price-forth">1200 ₽</p>
+                    </div>
+                    <div class="price__info">
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-first">Стрижка бороды и усов</p>
+                                <p class="price__info-type-second" id="right-text-first">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-second">Экспресс укладка</p>
+                                <p class="price__info-type-second" id="right-text-second">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-third">Укладка дневная</p>
+                                <p class="price__info-type-second" id="right-text-third">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                        <div class="price__info-container">
+                            <div class="price__info-left">
+                                <p class="price__info-type-first" id="right-title-forth">Прическа вечерняя
+                                    (свадебная)</p>
+                                <p class="price__info-type-second" id="right-text-forth">Короткие волосы</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="price__info-values">
+                        <p class="price__info-value" id="right-price-first">1200 ₽</p>
+                        <p class="price__info-value" id="right-price-second">1200 ₽</p>
+                        <p class="price__info-value" id="right-price-third">1200 ₽</p>
+                        <p class="price__info-value" id="right-price-forth">3000 ₽</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section -background-gray" id="masters">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Мастера</h2>
+                </div>
+                <div class="masters">
+                    <div class="masters__subtitle">Дружная команда настоящих профессионалов</div>
+                    <div class="masters__block">
+                        <div class="masters__item">
+                            <div data-fancybox="dialogMaster1" data-src="#dialog-content" class="masters__item-photo">
+                                <div class="masters__item-photo-text">
+                                    <div>Записаться <br> к мастеру</div>
+                                </div>
+                            </div>
+                            <div class="masters__item-name">Краснова Ирина</div>
+                            <div class="masters__item-specialization">Мастер ногтевого сервиса</div>
+                            <div class="masters__item-experience">опыт работы 5 лет</div>
+                        </div>
+                        <div class="masters__item">
+                            <div data-fancybox="dialogMaster2" data-src="#dialog-content"
+                                 class="masters__item-photo -secondMaster">
+                                <div class="masters__item-photo-text">
+                                    <div>Записаться <br> к мастеру</div>
+                                </div>
+                            </div>
+                            <div class="masters__item-name">Калилова Жанна</div>
+                            <div class="masters__item-specialization">Визажист-стилист</div>
+                            <div class="masters__item-experience">опыт работы 5 лет</div>
+                        </div>
+                        <div class="masters__item">
+                            <div data-fancybox="dialogMaster3" data-src="#dialog-content"
+                                 class="masters__item-photo -thirdMaster">
+                                <div class="masters__item-photo-text">
+                                    <div>Записаться <br> к мастеру</div>
+                                </div>
+                            </div>
+                            <div class="masters__item-name">Киселева Алина</div>
+                            <div class="masters__item-specialization">Парикмахер</div>
+                            <div class="masters__item-experience">опыт работы 5 лет</div>
+                        </div>
+                        <div class="masters__item">
+                            <div data-fancybox="dialogMaster4" data-src="#dialog-content"
+                                 class="masters__item-photo -forthMaster">
+                                <div class="masters__item-photo-text">
+                                    <div>Записаться <br> к мастеру</div>
+                                </div>
+                            </div>
+                            <div class="masters__item-name">Иванова Елена</div>
+                            <div class="masters__item-specialization">Мастер ногтевого сервиса</div>
+                            <div class="masters__item-experience">опыт работы 5 лет</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section -padding" id="works">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Наши работы</h2>
+                    <div class="works__arrows">
+                        <div class="works__ellipse-left">
+                            <img src="images/arrow-left.svg">
+                        </div>
+                        <div class="works__ellipse-right">
+                            <img src="images/arrow-right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="works__container swiper">
+                    <div class="works swiper-wrapper">
+                        <a data-fslightbox="second-lightbox" href="images/firstWork.png" class="swiper-slide">
+                            <div class="works__photo">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a data-fslightbox="second-lightbox" href="images/secondWork.png" class="swiper-slide">
+                            <div class="works__photo -second-work">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a data-fslightbox="second-lightbox" href="images/thirdWork.png" class="swiper-slide">
+                            <div class="works__photo -third-work">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a data-fslightbox="second-lightbox" href="images/forthWork.png" class="swiper-slide">
+                            <div class="works__photo -forth-work">
+                                <div class="works__photo-text">
+                                    <div class="works__glass"></div>
+                                    <div>Увеличить</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="works__brands">
+                    <div class="works__brands-text"> Бренды которые мы используем в работе</div>
+                    <div class="works__brands-photo">
+                        <img src="images/wella.png" width="92.86" height="65">
+                        <img src="images/schwarzkopf.png" width="120" height="64.86">
+                        <img src="images/tigi.png" width="108.07" height="40">
+                        <img src="images/londa.png" width="113.74" height="60">
+                        <img src="images/nioxin.png" width="135" height="36">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section -background-gray" id="contacts">
+            <div class="container">
+                <div class="contacts">
+                    <div class="contacts__left">
+                        <h2 class="section__title -contacts">Контакты</h2>
+                        <p class="contacts__address">Томск, проспект Ленина, дом 13</p>
+                        <p class="contacts__phone">8 (499) 686-17-62</p>
+                        <p class="contacts__email">info@more-krasoty.ru</p>
+                        <p class="contacts__socials-title">Мы в социальных сетях</p>
+                        <div class="socials -bottom">
+                            <a href="#"><img class="scale" src="images/vk.svg"></a>
+                            <a href="#"><img class="scale" src="images/inst.svg"></a>
+                            <a href="#"><img class="scale" src="images/yt.svg"></a>
+                        </div>
+                    </div>
+                    <form class="contacts__form" id="form">
+                        <div class="contacts__form-inner">
+                            <p class="contacts__form-title">Быстрая запись</p>
+                            <p class="contacts__form-message">Наш менеджер перезвонит в течение нескольких<br> минут,
+                                уточнит подробности и согласует время.</p>
+                            <div class="contacts__input-block">
+                                <input class="contacts__form-input" name="name" placeholder="Ваше имя"/>
+                                <input class="contacts__form-input" data-masked=""
+                                       data-inputmask="'mask':  '+7(999) 999-9999'" name="phone"
+                                       placeholder="+7 (___) ___-__-__"/>
+                                <p class="contacts__result-message hidden">Ваша заявка отправлена! <br>В ближайшее время
+                                    с вами свяжется
+                                    менеджер.</p>
+                                <button id="formButton" class="button -contacts" type="submit">
+                                    <img class="contacts__preloader hidden" src="images/preloader.svg">Записаться
+                                </button>
+                                <p class="contacts__agreement">Нажимая на кнопку вы соглашаетесь с <span
+                                        class="contacts__agreement-url">обработкой<br> персональных данных</span></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__info">
+                <p class="footer__company-name">© 2020 «Море красоты»</p>
+                <a class="footer__policy" href="#">Политика конфиденциальности</a>
+            </div>
+            <nav class="navigation">
+                <a class="navigation-item -footer" href="#price">Услуги и цены</a>
+                <a class="navigation-item -footer" href="#masters">Мастера</a>
+                <a class="navigation-item -footer" href="#works">Наши работы</a>
+                <a class="navigation-item -footer" href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </footer>
+</div>
+</body>
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper(".works__container", {
+
+        slidesPerView: 3,
+        freeMode: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".works__ellipse-right",
+            prevEl: ".works__ellipse-left",
+        },
+    });
+</script>
+<script src="js/fslightbox.js"></script>
+<script type="module">
+    import {Fancybox} from "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.esm.js";
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.3/jquery.inputmask.bundle.min.js"></script>
+<script>
+    jQuery.validator.addMethod("checkMask", function (value, element) {
+        return /\+\d{1}\(\d{3}\)\s\d{3}-\d{4}/g.test(value);
+    });
+    $(function () {
+        $('#form').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: {
+                    required: true,
+                    minlength: 16,
+                    checkMask: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Поле обязательно к заполнению",
+                    minlength: "Введите не менее 2-х символов"
+                },
+                phone: {
+                    required: "Поле обязательно к заполнению",
+                    checkMask: "Введите корректный номер телефона"
+                }
+            }
+        });
+    });
+    $(function () {
+        $('#form-fancybox').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: {
+                    required: true,
+                    minlength: 16,
+                    checkMask: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Поле обязательно к заполнению",
+                    minlength: "Введите не менее 2-х символов"
+                },
+                phone: {
+                    required: "Поле обязательно к заполнению",
+                    checkMask: "Введите корректный номер телефона"
+                }
+            }
+        });
+    });
+    $("#form-fancybox").submit(function (event) {
+        if ($("#form-fancybox").valid()) {
+            event.preventDefault();
+            getFormFancyboxData()
+        }
+
+    });
+    $("#form").submit(function (event) {
+        if ($("#form").valid()) {
+            event.preventDefault();
+            getFormData()
+        }
+
+    });
+    $(document).ready(function () {
+        $(":input").inputmask();
+    });
+</script>
+
+</html>
